@@ -1,0 +1,8 @@
+# Run using bag3_testbenches/run_scripts/test_mos_char.py
+
+specs_list:
+  - data/bag3_testbenches/specs_mos_char/pch_18n.yaml
+query_options:
+  vgs: -0.5
+  vds: -0.5
+  vbs: 0.0

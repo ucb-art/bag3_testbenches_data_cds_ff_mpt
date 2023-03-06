@@ -1,0 +1,57 @@
+impl_lib: MOSCHAR_NCH_18n
+impl_cell: MOS_NCH_18n
+
+dut_class: xbase.layout.mos.char.MOSChar
+#dut_class: xbase.schematic.mos_char.xbase__mos_char
+meas_class: bag3_testbenches.measurement.mos.sim.MOSCharSS
+root_dir: gen_outputs/mos_char_nch_18n
+meas_name: char
+
+sweep_params: {}
+
+dut_params:
+  mos_type: nch
+  w: 4
+  lch: 36
+  seg: &seg 20
+  fg_dum: 4
+  intent: standard
+  stack: 1
+  tr_widths: {}
+  tr_spaces: {}
+
+
+meas_params:
+  sim_envs: [tt_25]
+  is_nmos: True
+  seg: *seg
+#  noise_integ_fstart: 10.0e+6
+#  noise_integ_fstop: 1.0e+9
+#  noise_integ_scale: 1.0
+  tbm_specs:
+    ibias:
+      vgs_num: 200
+      vgs_max: 1.0
+      ibias_min_seg: 1.0e-6
+      ibias_max_seg: 200.0e-6
+      vgs_resolution: 4.0e-3
+      sim_params: {}
+    sp:
+      vgs_num: 30
+      vds_num: 20
+      vds_min: 5.0e-3
+      vds_max: 1.0
+      vbs: [0.0, 0.15, 0.3, 0.45]
+      sp_freq: 1.0e+6
+      cfit_method: 'average'
+      sim_params: {}
+    noise:
+      vgs_num: 30
+      vds_num: 20
+      vds_min: 5.0e-3
+      vds_max: 1.0
+      vbs: [0.0, 0.15, 0.3, 0.45]
+      freq_start: 1.0e+6
+      freq_stop: 100.0e+9
+      num_per_dec: 20
+      sim_params: {}
