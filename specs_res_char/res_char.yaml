@@ -1,0 +1,37 @@
+impl_lib: RES_CHAR_EXT
+impl_cell: RES_CHAR
+
+dut_class: xbase.layout.array.top.ArrayBaseWrapper
+meas_class: bag3_testbenches.measurement.char.CharSPMeas
+root_dir: gen_outputs/res_char
+meas_name: char
+
+dut_params:
+  cls_name: xbase.layout.res.char.ResChar
+  params:
+    pinfo:
+      unit_specs:
+        params: {w: 36, l: 300, res_type: standard}
+      wire_specs: {}
+      tr_widths:
+        sig: {3: 1, 4: 1}
+        sup: {3: 1, 4: 1}
+      tr_spaces: {}
+      top_layer: 4
+      nx: 1
+      ny: 1
+
+meas_params:
+  sim_envs: ['tt_25']
+  tbm_specs:
+    sp_meas:
+      sweep_options:
+        type: LOG
+        start: 10e3
+        stop: 100e6
+        num: 20
+      sim_params: {vdd: 1.0}
+    extracted: True
+    dut_plus: plus
+    dut_minus: minus
+  passive_type: res
